@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Object Detection Example</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css"/>
+  <title>Detecting Objects in Botanical Studies</title>
 </head>
 <body>
-    <div id="image">
-        <img class="detected-image" src="/img/ld1-1643381040022-1643381056074-1.jpg" alt="Image for detection"/>
-        <button id="detection-btn" class="detection-btn">START DETECTION</button>
+    <div id="vase-container">
+    <h1>Detecting Objects in Botanical Studies</h1>
+    <div id="emoji-grid-container"></div>
+    <div id="images"></div>
+    <div id="category-navigation">
+      <button id="prevCategory">Previous Category</button>
+      <span id="categoryName"></span>
+      <button id="nextCategory">Next Category</button>
     </div>
-    <div id="imgs-container"></div>
-
-    <script src="boxdisplayed.js" type="module"></script>
+</div>
+    <!-- D3 via CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Your script (now NOT using ES modules) -->
+    <script src="main.js"></script>
+    <script src="images.js"></script>
 </body>
 </html>

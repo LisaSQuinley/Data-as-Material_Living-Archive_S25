@@ -1,23 +1,84 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  #container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  #inputImage {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  #overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
+  text-align: center;
+  text-transform: capitalize;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#vase-container {
+  position: relative;
+}
+
+#emoji-grid-container {
+  position: absolute;
+  left: 0;  
+  width: 50vw;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  justify-content: center; /* optional: center layout */
+}
+
+.emoji-group {
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+.stacked-group {
+  flex: 1 1 100%;
+  max-width: 300px;
+}
+
+.emoji-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  word-break: break-word;
+}
+
+.emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+.emoji-cell {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#images {
+  position: absolute;
+  width: 50vw;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+img {
+  width: 30%;
+}
+
+#category-navigation {
+  position: fixed;
+  bottom: 30px;
+  left: 75%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}

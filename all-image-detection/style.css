@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .detected-image {
+    height: calc(100vh - 60px);
+    width: auto;
+  }
+
+  #container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .detection-btn {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    font-size: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  #process-all-btn {
+    position: fixed;
+    top: 50px;
+    right: 300px;
+    font-size: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  

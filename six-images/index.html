@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Object Detection Grid</title>
+
+</head>
+<body>
+  <div id="container"></div>
+  <button id="detection-btn" class="detection-btn">START DETECTION</button>
+
+  <script type="module">
+    async function loadRandomImages() {
+      try {
+        const response = await fetch('./data.json');
+        const data = await response.json();
+
+        if (data.length < 6) {
+          console.error('Not enough images in JSON.');
+          return;
+        }
+
+        // Shuffle and pick 6
+        const selected = data.sort(() => 0.5 - Math.random()).slice(0, 6);
+        const container = document.getElementById('container');
+        container.innerHTML = '';
+
+        // Set grid dynamically based on viewport ratio
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const columns = vw > vh ? 3 : 2;
+        const rows = 6 / columns;
+        container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+        container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+        selected.forEach(entry => {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('image-wrapper');
+
+  const img = document.createElement('img');
+  img.classList.add('detected-image');
+  img.src = `/img/${entry.id}.jpg`;
+  img.alt = entry.title;
+  img.dataset.imageId = entry.id;
+
+  wrapper.appendChild(img);
+  container.appendChild(wrapper);
+});
+      } catch (err) {
+        console.error('Failed to load images:', err);
+      }
+    }
+
+    function runObjectDetection() {
+      const images = document.querySelectorAll('.detected-image');
+      images.forEach(img => {
+        console.log(`Run detection on ${img.src}`);
+        // detectObjects(img); // Your function goes here
+      });
+    }
+
+    document.getElementById('detection-btn').addEventListener('click', runObjectDetection);
+
+    loadRandomImages();
+    window.addEventListener('resize', loadRandomImages); // Reload layout on resize
+  </script>
+
+  <script src="boxdisplayed.js" type="module"></script>
+</body>
+</html>
