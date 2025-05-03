@@ -76,7 +76,7 @@ function addObject(objectData) {
 
   let image_url = "";
   if (objectData.content.descriptiveNonRepeating && objectData.content.descriptiveNonRepeating.online_media) {
-    image_url = objectData.content.descriptiveNonRepeating.online_media.media[0].guid || "NA";
+    image_url = objectData.content.descriptiveNonRepeating.online_media.media[0].resources[2].url || "NA";
   } else {
     image_url = "NA";
   }
