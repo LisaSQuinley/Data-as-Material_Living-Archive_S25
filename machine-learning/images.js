@@ -13,7 +13,7 @@ function loadImagesForCategory(category) {
   
     filteredImages.forEach(item => {
       const imageElement = document.createElement("img");
-      imageElement.src = `./img/${item.image}.jpg`;
+      imageElement.src = `/img-studies/${item.image}.jpg`;
       imageElement.alt = item.title;
       imageElement.title = item.title;
   
